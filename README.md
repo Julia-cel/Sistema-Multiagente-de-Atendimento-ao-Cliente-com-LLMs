@@ -15,6 +15,7 @@ Um pipeline com três agentes de IA que trabalham em sequência para lidar com s
 Além da arquitetura multiagente, o projeto inclui um sistema automatizado para testar dezenas de solicitações, avaliar a qualidade das respostas geradas e acompanhar o desempenho dos agentes por meio de dashboard interativo com métricas.
 
 O objetivo foi explorar como agentes especializados podem colaborar para executar tarefas complexas de forma autônoma, reduzindo trabalho manual e aumentando a qualidade das respostas geradas.
+
 ---
 
 ## Resultados
