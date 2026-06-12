@@ -38,7 +38,7 @@ Cada agente tem um prompt desenhado para sua função específica. No classifica
 O agente avaliador aplica o padrão LLM-as-judge: um modelo avalia a saída de outro com critérios definidos e retorna um JSON estruturado com nota, classificação correta/incorreta, status e feedback. Isso permitiu iterar sobre os prompts com base em dados reais — quando a nota caía, o prompt era ajustado e o experimento rodava novamente.
 
 **Do experimento ao produto**
-Depois de validar o desempenho na base de avaliação, o sistema foi colocado em produção no Streamlit Community Cloud, com as variáveis de ambiente gerenciadas de forma segura via Secrets. O dashboard agrega os resultados e apresenta as métricas de forma acessível.
+Depois de testar os agentes com a base de solicitações, foi criado um dashboard para monitorar resultados e identificar oportunidades de melhorias com bases em métricas concretas calculadas referentes aos feedbacks do agente avaliador. 
 
 ---
 
