@@ -1,0 +1,61 @@
+question,expected_category
+Gostaria de cancelar meu pedido realizado ontem.,cancelamento
+"Quero desistir da compra do tênis, como faço para cancelar antes que enviem?",cancelamento
+"Por favor, cancelem o pedido #45821 imediatamente.",cancelamento
+Comprei o produto errado por engano e quero cancelar.,cancelamento
+Pedi o tamanho errado. Quero cancelar essa compra pra refazer com o tamanho certo.,cancelamento
+Não quero mais o item que comprei hoje cedo. Pode cancelar por favor?,cancelamento
+Como faço para solicitar o cancelamento de uma compra pendente?,cancelamento
+Infelizmente vou ter que cancelar meu pedido pq tive um imprevisto financeiro.,cancelamento
+"Quero cancelar o pedido de código 882319, mudei de ideia.",cancelamento
+"Por favor, suspendam e cancelem minha entrega, não vou estar em casa e desisti da compra.",cancelamento
+Me arrependi da compra do celular e quero o cancelamento.,cancelamento
+Quero cancelar. O prazo de entrega ficou muito longo.,cancelamento
+Como cancelo um pedido que acabei de pagar no boleto?,cancelamento
+"Preciso cancelar urgentemente o pedido de hoje, o cartão usado não era meu.",cancelamento
+"Achei o mesmo produto mais barato em outra loja, por isso quero cancelar o meu pedido com vocês.",cancelamento
+Meu pedido ainda não chegou. Como acompanho a entrega?,rastreamento
+Onde tá meu produto? Já passou do prazo de entrega.,rastreamento
+Pode me passar o código de rastreio do pedido #9921?,rastreamento
+Quero saber o status de envio da minha compra de semana passada.,rastreamento
+"Não estou conseguindo rastrear meu pacote pelos correios, diz que o código não existe.",rastreamento
+Onde vejo onde está a minha encomenda agora?,rastreamento
+Meu pedido já foi enviado? Não recebi nenhuma atualização no e-mail.,rastreamento
+Ainda vai demorar para entregar? Rastreio não atualiza desde terça.,rastreamento
+"Gostaria de saber a localização atual do meu pedido, por gentileza.",rastreamento
+Qual a transportadora que vai entregar meu produto e qual o link de rastreamento?,rastreamento
+Objeto saiu para entrega hoje? Não consigo ver pelo site.,rastreamento
+"Me envia o link de rastreio por aqui, por favor.",rastreamento
+Estou preocupado pq o status do rastreamento tá parado no mesmo lugar faz 4 dias.,rastreamento
+Onde está o meu pacote? O prazo termina hoje.,rastreamento
+Preciso do código de rastreamento para acompanhar a entrega com a transportadora.,rastreamento
+"Quero meu dinheiro de volta, o produto veio quebrado.",reembolso
+"Já devolvi o item faz uma semana, quando vou receber o estorno no meu cartão?",reembolso
+Solicito o reembolso do valor pago pelo pedido cancelado.,reembolso
+O produto não era o que eu esperava e quero a devolução do dinheiro.,reembolso
+"Fui cobrado duas vezes no meu cartão de crédito, preciso do estorno urgente.",reembolso
+Como funciona o reembolso caso eu desista da compra dentro dos 7 dias?,reembolso
+Paguei no pix e o pedido foi cancelado. Quando cai o reembolso na minha conta?,reembolso
+Quero a restituição do valor pago pelo produto que veio com defeito.,reembolso
+Vocês já processaram o meu reembolso? Faz dias que mandei o produto de volta.,reembolso
+"Não quero vale-troca, prefiro o dinheiro de volta na minha conta.",reembolso
+"O pedido veio faltando um item, quero o reembolso proporcional desse valor.",reembolso
+Propaganda enganosa. Quero devolver o produto e receber meu dinheiro integralmente.,reembolso
+O estorno na fatura do cartão demora quantas parcelas para aparecer?,reembolso
+Tive que pagar uma taxa extra e quero o reembolso desse valor extra que gastei.,reembolso
+Quero o estorno do pagamento pois desisti de ficar com a mercadoria.,reembolso
+"A blusa ficou muito pequena, como faço para trocar por um tamanho maior?",troca
+"O produto veio com defeito de fábrica, quero trocar por um novo.",troca
+Recebi a cor errada do batom. Comprei vermelho e veio rosa. Quero trocar.,troca
+Quero trocar o sapato que comprei por outro modelo do mesmo valor.,troca
+Como faço para solicitar a troca de um produto comprado no site?,troca
+O casaco que comprei veio com um rasgo. Preciso trocar por outro sem defeito.,troca
+"Comprei uma voltagem errada sem querer, tem como trocar o produto por 220v?",troca
+"O tênis machucou meu pé, posso efetuar a troca por outro modelo?",troca
+"Gostaria de trocar o produto, mas já joguei a caixa fora. É possível?",troca
+Qual o prazo máximo que eu tenho para pedir a troca de uma roupa?,troca
+Recebi o produto hoje e não gostei do tecido. Quero trocar por outra peça.,troca
+Quero fazer a substituição do produto que veio quebrado por um funcionando perfeitamente.,troca
+Onde consigo o código de postagem para enviar o produto de volta para troca?,troca
+Comprei de presente mas a pessoa já tinha. Posso trocar por qualquer outra coisa da loja?,troca
+Preciso trocar este item porque ele veio com o tamanho diferente do que estava na etiqueta.,troca
