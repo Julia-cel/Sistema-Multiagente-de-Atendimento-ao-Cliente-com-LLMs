@@ -21,8 +21,8 @@ Os resultados de 60 solicitações processadas ficam disponíveis em um dashboar
 | Métrica | Resultado |
 |---|---|
 | Acurácia do Classificador | **100%** |
-| Taxa de Aprovação das Respostas | **96,7%** |
-| Nota Média | **4,75 / 5** |
+| Taxa de Aprovação das Respostas | **98,3%** |
+| Nota Média | **4,73 / 5** |
 
 ---
 
@@ -82,6 +82,6 @@ streamlit run app.py
 
 **Júlia** — Estudante de Ciência de Dados (Uninter)
 
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=flat&logo=linkedin&logoColor=white)(https://www.linkedin.com/in/j%C3%BAlialobo-dataanalyst/)
+![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=flat&logo=linkedin&logoColor=white)(https://www.linkedin.com/in/j%C3%BAlialobo-dataanalyst/)
 
 
