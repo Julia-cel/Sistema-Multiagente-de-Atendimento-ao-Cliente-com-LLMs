@@ -80,7 +80,7 @@ streamlit run app.py
 
 ---
 
-**Júlia** — Estudante de Ciência de Dados (Uninter)
+**Júlia** — Estudante de Ciência de Dados
 
 ![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=flat&logo=linkedin&logoColor=white)(https://www.linkedin.com/in/j%C3%BAlialobo-dataanalyst/)
 
