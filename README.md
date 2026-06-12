@@ -13,6 +13,8 @@
 Um pipeline com três agentes de IA que trabalham em sequência para lidar com solicitações de atendimento em e-commerce: o primeiro classifica a intenção do cliente, o segundo gera uma resposta direcionada, e o terceiro avalia automaticamente a qualidade dessa resposta — funcionando como um juiz independente (LLM-as-Judge).
 
 Além da arquitetura multiagente, o projeto inclui um sistema automatizado para testar dezenas de solicitações, avaliar a qualidade das respostas geradas e acompanhar o desempenho dos agentes por meio de dashboard interativo com métricas.
+
+O objetivo foi explorar como agentes especializados podem colaborar para executar tarefas complexas de forma autônoma, reduzindo trabalho manual e aumentando a qualidade das respostas geradas.
 ---
 
 ## Resultados
