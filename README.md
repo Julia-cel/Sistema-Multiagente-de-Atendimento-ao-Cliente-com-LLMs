@@ -1,4 +1,4 @@
-# Sistema Multiagente de Atendimento ao Cliente com LLMs
+# Sistema Multiagente com LLMs para Automação Inteligente de Atendimento
 
 [![Python](https://img.shields.io/badge/Python-3.11-3776AB?style=flat&logo=python&logoColor=white)](https://python.org)
 [![Groq](https://img.shields.io/badge/Groq-LLaMA_3.3_70B-F55036?style=flat)](https://groq.com)
@@ -10,10 +10,9 @@
 
 ## O projeto
 
-Um pipeline com três agentes de IA que trabalham em sequência para lidar com solicitações de atendimento em e-commerce: o primeiro classifica a intenção do cliente, o segundo gera uma resposta direcionada, e o terceiro avalia automaticamente a qualidade dessa resposta — funcionando como um juiz independente.
+Um pipeline com três agentes de IA que trabalham em sequência para lidar com solicitações de atendimento em e-commerce: o primeiro classifica a intenção do cliente, o segundo gera uma resposta direcionada, e o terceiro avalia automaticamente a qualidade dessa resposta — funcionando como um juiz independente (LLM-as-Judge).
 
-Os resultados de 60 solicitações processadas ficam disponíveis em um dashboard interativo com métricas de desempenho do sistema.
-
+Além da arquitetura multiagente, o projeto inclui um sistema automatizado para testar dezenas de solicitações, avaliar a qualidade das respostas geradas e acompanhar o desempenho dos agentes por meio de dashboard interativo com métricas.
 ---
 
 ## Resultados
@@ -29,7 +28,8 @@ Os resultados de 60 solicitações processadas ficam disponíveis em um dashboar
 ## Como foi construído
 
 **Dataset de avaliação**
-Criei uma base com 60 solicitações reais de e-commerce, distribuídas igualmente entre quatro categorias: cancelamento, rastreamento, reembolso e troca. Esse dataset foi o ponto de partida para todos os experimentos e para medir o desempenho do sistema de forma confiável.
+Foi criada uma base de testes com 60 solicitações simulando cenários reais de atendimento em e-commerce, distribuídas igualmente entre quatro categorias: cancelamento, rastreamento, reembolso e troca.
+Essa base permitiu avaliar sistematicamente o comportamento dos agentes e acompanhar a evolução do sistema ao longo das iterações de desenvolvimento.
 
 **Prompt engineering**
 Cada agente tem um prompt desenhado para sua função específica. No classificador, usei few-shot examples — mostrar exemplos de input e output esperado diretamente no prompt — o que aumentou a consistência das respostas. No agente especialista, as instruções de cada categoria são injetadas de forma isolada, evitando que o modelo misture contextos. A temperature foi ajustada para 0.3 no classificador (mais determinístico) e mantida mais alta no especialista (respostas menos repetitivas).
