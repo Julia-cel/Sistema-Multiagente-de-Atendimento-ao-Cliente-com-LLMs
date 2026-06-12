@@ -4,101 +4,63 @@
 [![Groq](https://img.shields.io/badge/Groq-LLaMA_3.3_70B-F55036?style=flat)](https://groq.com)
 [![Streamlit](https://img.shields.io/badge/Dashboard-Streamlit-FF4B4B?style=flat&logo=streamlit&logoColor=white)](https://streamlit.io)
 
-Pipeline de IA com três agentes especializados que classificam solicitações de e-commerce, geram respostas e avaliam automaticamente a qualidade do atendimento — com resultados visualizados em dashboard interativo.
+🔗 **[Acessar o dashboard](https://sistema-multiagente-de-atendimento-ao-cliente-com-llms-sa6nzza.streamlit.app)**
 
-🔗 **[Acessar o dashboard](https://sistema-multiagente-de-atendimento-ao-cliente-com-llms-sa6nzza.streamlit.app/)**
+---
+
+## O projeto
+
+Um pipeline com três agentes de IA que trabalham em sequência para lidar com solicitações de atendimento em e-commerce: o primeiro classifica a intenção do cliente, o segundo gera uma resposta direcionada, e o terceiro avalia automaticamente a qualidade dessa resposta — funcionando como um juiz independente.
+
+Os resultados de 60 solicitações processadas ficam disponíveis em um dashboard interativo com métricas de desempenho do sistema.
 
 ---
 
 ## Resultados
 
-Avaliado em uma base com **60 solicitações reais de e-commerce**, distribuídas igualmente entre as quatro categorias do sistema:
-
 | Métrica | Resultado |
 |---|---|
 | Acurácia do Classificador | **100%** |
-| Taxa de Aprovação das Respostas | **98,3%** |
-| Nota Média das Respostas | **4,73 / 5** |
+| Taxa de Aprovação das Respostas | **96,7%** |
+| Nota Média | **4,75 / 5** |
 
 ---
 
-## Arquitetura
+## Como foi construído
 
-O sistema é composto por três agentes independentes que operam em sequência. Cada agente tem uma responsabilidade única e isolada, o que permite auditar, ajustar ou substituir qualquer etapa sem impactar as demais.
+**Dataset de avaliação**
+Criei uma base com 60 solicitações reais de e-commerce, distribuídas igualmente entre quatro categorias: cancelamento, rastreamento, reembolso e troca. Esse dataset foi o ponto de partida para todos os experimentos e para medir o desempenho do sistema de forma confiável.
 
-```
-Solicitação do cliente
-        │
-        ▼
-┌─────────────────────┐
-│  Agente Classificador│  Identifica a categoria: cancelamento │ rastreamento
-│                     │                           reembolso   │ troca
-└──────────┬──────────┘
-           │
-           ▼
-┌─────────────────────┐
-│  Agente Especialista │  Gera resposta direcionada à categoria,
-│                     │  sem vazar informações de outras categorias
-└──────────┬──────────┘
-           │
-           ▼
-┌─────────────────────┐
-│  Agente Avaliador   │  Avalia qualidade e retorna JSON estruturado
-│  (QA)               │  com nota, status e feedback
-└──────────┬──────────┘
-           │
-           ▼
-    Dashboard Streamlit
-```
+**Prompt engineering**
+Cada agente tem um prompt desenhado para sua função específica. No classificador, usei few-shot examples — mostrar exemplos de input e output esperado diretamente no prompt — o que aumentou a consistência das respostas. No agente especialista, as instruções de cada categoria são injetadas de forma isolada, evitando que o modelo misture contextos. A temperature foi ajustada para 0.3 no classificador (mais determinístico) e mantida mais alta no especialista (respostas menos repetitivas).
 
----
+**Avaliação com LLM-as-judge**
+O agente avaliador aplica o padrão LLM-as-judge: um modelo avalia a saída de outro com critérios definidos e retorna um JSON estruturado com nota, classificação correta/incorreta, status e feedback. Isso permitiu iterar sobre os prompts com base em dados reais — quando a nota caía, o prompt era ajustado e o experimento rodava novamente.
 
-## Decisões técnicas
-
-**Separação de responsabilidades por agente**
-Cada agente recebe apenas o prompt necessário para sua função. O agente especialista, por exemplo, só recebe as instruções da categoria identificada — isso evita que o modelo misture informações de cancelamento com reembolso, um problema comum em arquiteturas de prompt único.
-
-**Prompt isolation no agente especialista**
-As instruções de cada categoria são armazenadas em um dicionário e injetadas dinamicamente no prompt. O agente nunca vê as instruções das outras categorias, o que eliminou ambiguidades nas respostas geradas.
-
-**temperature=0.3 no classificador**
-Valores baixos de temperatura tornam o modelo mais determinístico. Para classificação, consistência importa mais que variabilidade — o mesmo input deve sempre retornar a mesma categoria.
-
-**Saída estruturada em JSON no avaliador**
-O agente avaliador retorna um JSON com campos definidos (`nota_resolucao`, `classificacao_correta`, `status`, `feedback`), o que permite agregar as métricas diretamente no dashboard sem pós-processamento manual.
-
-**Groq como provedor de inferência**
-O free tier do Groq oferece 14.400 requisições/dia com latência baixa, viabilizando o processamento de toda a base (60 registros × 3 chamadas = 180 requisições) em menos de 3 minutos com `time.sleep(2)` entre registros para respeitar o rate limit.
+**Do experimento ao produto**
+Depois de validar o desempenho na base de avaliação, o sistema foi colocado em produção no Streamlit Community Cloud, com as variáveis de ambiente gerenciadas de forma segura via Secrets. O dashboard agrega os resultados e apresenta as métricas de forma acessível.
 
 ---
 
 ## Stack
 
-| Camada | Tecnologia |
-|---|---|
-| Linguagem | Python 3.11 |
-| LLM | LLaMA 3.3 70B via Groq API |
-| Dashboard | Streamlit |
-| Processamento de dados | Pandas |
-| Deploy | Streamlit Community Cloud |
+Python · LLaMA 3.3 70B (Groq API) · Streamlit · Pandas · Streamlit Cloud
 
 ---
 
-## Estrutura do repositório
+## Estrutura
 
 ```
-├── agentes.py          # Os três agentes e a função de chamada à API
-├── app.py              # Dashboard com métricas e visualizações
-├── evaluate.py         # Processamento em lote da base de dados
-├── AnaliseResults.py   # Análise e agregação dos resultados
-├── test_agents.py      # Testes dos agentes
-├── test_cases.csv      # Base com 60 solicitações de e-commerce
+├── agentes.py        # os três agentes e a lógica de chamada à API
+├── app.py            # dashboard com métricas e visualizações
+├── evaluate.py       # processamento da base em lote
+├── test_cases.csv    # dataset com 60 solicitações de e-commerce
 └── requirements.txt
 ```
 
 ---
 
-## Execução local
+## Rodando localmente
 
 ```bash
 git clone https://github.com/seu-usuario/vtex-llm-multiagent-support.git
@@ -112,15 +74,14 @@ GROQ_API_KEY=sua_chave_aqui
 ```
 
 ```bash
-python evaluate.py   # processa a base e gera results.csv
-streamlit run app.py # abre o dashboard
+python evaluate.py
+streamlit run app.py
 ```
 
 ---
 
-## Autora
+**Júlia** — Estudante de Ciência de Dados (Uninter)
 
-**Júlia** — Estudante de Ciência de Dados 
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=flat&logo=linkedin&logoColor=white)(https://www.linkedin.com/in/j%C3%BAlialobo-dataanalyst/)
 
-[![LinkedIn](www.linkedin.com/in/júlialobo-dataanalyst)
 
